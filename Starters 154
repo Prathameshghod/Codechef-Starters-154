@@ -1,0 +1,50 @@
+Calorie Limit 
+
+for _ in range(int(input())):
+    a,b=map(int,input().split())
+    c=list(map(int,input().split()))
+    d,e=0,0 
+    for i in range(a):
+        if (d+c[i])>b:
+            break 
+        d+=c[i]
+        e+=1 
+    print(e)
+
+
+Add 1 or 2 Game
+
+for _ in range(int(input())):
+    a=int(input())
+    if a!=1:
+        print("Bob")
+    else:
+        print("Alice")
+
+GCD and XOR
+
+import math
+#import re
+# r = r'exp'
+for _ in range(int(input())):
+    #print("cyan",_)
+    n, k = map(int, input().split())
+    arr = list(map(int, input().split()))
+
+    if all(x == k for x in arr):
+        print(0)
+    else:
+        s, e = -1, n
+        for i in range(n):
+            if arr[i] != k:
+                if s == -1:
+                    s = i
+                e = i
+
+        if s == e:
+            print(1)
+        else:
+            x = all((v ^ k) == (arr[s] ^ k) for v in arr[s:e + 1])
+            d = all(v % k == 0 for v in arr[s:e + 1])
+            print(1 if x or d else 2)
+    
